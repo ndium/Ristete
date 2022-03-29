@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Accueil"
+    android:background="@drawable/galaxie"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        android:src="@drawable/ristete"
+        android:paddingTop="50px"/>
+
+
+
+
+
+
+<!--        <ImageView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:scaleType="center"-->
+<!--            android:src="@drawable/pseudo" />-->
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="150dp">
+
+
+        <ImageButton
+            android:id="@+id/boutonJouer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:src="@drawable/jouerpetit"
+
+            android:paddingHorizontal="5dp"
+            android:onClick="tetris"/>
+
+        <ImageButton
+            android:id="@+id/boutonScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@null"
+            android:onClick="score"
+
+            android:gravity="bottom"
+            android:foregroundGravity="bottom"
+            android:layout_gravity="bottom"
+            android:paddingHorizontal="5dp"
+
+            android:paddingBottom="50dp"
+            android:src="@drawable/scorepetit" />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        android:src="@drawable/parametres"
+        android:onClick="parametre"
+        android:paddingLeft="320dp"
+        android:paddingTop="130dp" />
+</LinearLayout>

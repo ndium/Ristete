@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Ristete</string>
+
+    <string name="play">Commencer</string>
+    <string name="score">Voir les scores</string>
+
+    <string name="modeTactile">Mode tactile</string>
+    <string name="modeDetecteur">Mode détecteur</string>
+
+    <string name="enregistrer">Enregistrer</string>
+
+</resources>
