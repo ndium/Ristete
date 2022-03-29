@@ -32,7 +32,7 @@ public class Parametre extends AppCompatActivity implements TextWatcher, RadioGr
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_parametre);
+        setContentView(R.layout.activity_parametre_responsive);
 
         editText = findViewById(R.id.txtPseudo);
         editText.addTextChangedListener(this);

@@ -18,8 +18,6 @@
     android:orientation="horizontal"
     android:paddingTop="130dp">
 
-
-
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,7 +34,6 @@
             android:lines="1"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:maxLength="10" />
-
 </LinearLayout>
 
 

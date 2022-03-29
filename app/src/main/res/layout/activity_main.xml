@@ -6,27 +6,20 @@
     android:orientation="vertical"
     tools:context=".Accueil"
     android:background="@drawable/galaxie"
-    >
+    android:weightSum="100">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scaleType="center"
         android:src="@drawable/ristete"
-        android:paddingTop="50px"/>
-
-
-
-
-
+        android:paddingTop="10dp"
+        />
 
     <!--        <ImageView-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:scaleType="center"-->
-    <!--            android:src="@drawable/pseudo" />-->
-
-
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:scaleType="center"-->
+    <!--        android:src="@drawable/pseudo" />-->
 
 
     <LinearLayout
@@ -47,7 +40,8 @@
             android:src="@drawable/jouerpetit"
 
             android:paddingHorizontal="5dp"
-            android:onClick="tetris"/>
+            android:onClick="tetris"
+            />
 
         <ImageButton
             android:id="@+id/boutonScore"
@@ -70,11 +64,12 @@
     </LinearLayout>
 
     <ImageView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="center"
         android:src="@drawable/parametres"
         android:onClick="parametre"
         android:paddingLeft="320dp"
-        android:paddingTop="130dp" />
+        android:paddingTop="130dp"
+        />
 </LinearLayout>
