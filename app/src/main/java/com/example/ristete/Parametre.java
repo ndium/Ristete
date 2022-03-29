@@ -57,6 +57,21 @@ public class Parametre extends AppCompatActivity implements TextWatcher, RadioGr
     {
         super.onStart();
         editText = findViewById(R.id.txtPseudo);
+        RadioButton rbTactile = findViewById(R.id.radioButton_tactile);
+        RadioButton rbDetecteur = findViewById(R.id.radioButton_detecteur);
+
+        SharedPreferences spBoutonRadio = getApplicationContext().getSharedPreferences("boutonradio", Context.MODE_PRIVATE);
+        String mode = spBoutonRadio.getString("boutonRadio","");
+
+        if (mode.equals("boutonTactile"))
+        {
+            rbTactile.setChecked(true);
+        }
+        else if (mode.equals("boutonDetecteur"))
+        {
+            rbDetecteur.setChecked(true);
+        }
+
         SharedPreferences sp = getApplicationContext().getSharedPreferences("parametre", Context.MODE_PRIVATE);
         String pseudo = sp.getString("pseudo","");
 
@@ -84,10 +99,26 @@ public class Parametre extends AppCompatActivity implements TextWatcher, RadioGr
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i)
     {
-        RadioButton boutonSelectionne = (RadioButton) radioGroup.getCheckedRadioButtonId();
-
-        SharedPreferences.Editor editor = spRadioB.edit();
-        editor.putBoolean("radioBouton", radioBoutonTactile);
-        editor.commit();
+        try
+        {
+            SharedPreferences.Editor editor = spRadioB.edit();
+            RadioButton radioBoutonTactile = findViewById(R.id.radioButton_tactile);
+            RadioButton radioButtonDetecteur = findViewById(R.id.radioButton_detecteur);
+            if (radioBoutonTactile.createAccessibilityNodeInfo().isChecked())
+            {
+                editor.remove("boutonRadio");
+                editor.putString("boutonRadio","boutonTactile");
+            }
+            else if (radioButtonDetecteur.createAccessibilityNodeInfo().isChecked())
+            {
+                editor.remove("boutonRadio");
+                editor.putString("boutonRadio", "boutonDetecteur");
+            }
+            editor.commit();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 }

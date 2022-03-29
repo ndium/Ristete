@@ -21,14 +21,14 @@
 
 
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/pseudo"
             android:paddingRight="15dp"/>
 
         <EditText
             android:id="@+id/txtPseudo"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="35dp"
             android:textSize="35dp"
             android:background="@null"
