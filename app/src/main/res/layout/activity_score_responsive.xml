@@ -12,6 +12,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Meilleur Score :"
         android:textColor="@color/white"
         android:textSize="30dp"
@@ -19,155 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:id="@+id/barScrollView"
-        android:layout_width="358dp"
-        android:layout_height="530dp"
-        app:layout_constraintBottom_toTopOf="@+id/boutonJouer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score :"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score :"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score :"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score :"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score :"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score :"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score :"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score :"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score :"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score :"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score :"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score :"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score :"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score :"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score :"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score :"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score :"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score :"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Score :"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
-
-        </LinearLayout>
-    </ScrollView>
 
     <ImageButton
         android:id="@+id/boutonJouer"
@@ -183,6 +36,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ListView
+        android:id="@+id/listViewScore"
+        android:layout_width="333dp"
+        android:layout_height="546dp"
+        app:layout_constraintBottom_toTopOf="@+id/boutonJouer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="MissingConstraints"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

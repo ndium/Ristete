@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ScrollView;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,21 +15,23 @@ public class Score extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score_responsive);
+        genereScore(getCurrentFocus());
     }
 
-    /*
+
     public void genereScore(View v)
     {
-        SharedPreferences spPseudo = getApplicationContext().getSharedPreferences("parametre", Context.MODE_PRIVATE);
-        String pseudo = spPseudo.getString("pseudo","");
+        //SharedPreferences spPseudo = getApplicationContext().getSharedPreferences("parametre", Context.MODE_PRIVATE);
+        //String pseudo = spPseudo.getString("pseudo","");
 
-        int scoreQuiVientDetreFait = 100;
+        String[] tabJoueur = {"Juno","Hubble","Casini","WMAP","Spitzer","Pioneer","Columbia","Challenger","Apollo","Curiosity"};
+        ListView lv = findViewById(R.id.listViewScore);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tabJoueur);
+        lv.setAdapter(adapter);
 
-        TextView txtViewScore = new TextView(this);
-        ScrollView scrollView = findViewById(R.id.barScrollView);
+        //int scoreQuiVientDetreFait = 100;
 
-
-    }*/
+    }
 
     public void retour(View v)
     {

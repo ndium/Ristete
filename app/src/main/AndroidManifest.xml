@@ -18,7 +18,8 @@
         android:theme="@style/Theme.Ristete">
         <activity
             android:name=".Accueil"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,11 +27,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Tetris" />
+        <activity android:name=".Tetris"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".Parametre" />
+        <activity android:name=".Parametre"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".Score"/>
+        <activity android:name=".Score"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
