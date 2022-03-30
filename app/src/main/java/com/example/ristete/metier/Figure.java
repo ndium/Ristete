@@ -29,31 +29,24 @@ public class Figure
         switch( num )
         {
             case 1 : tab = Figure.creerO();
-                     color = "YELLOW";
                      break;
 
             case 2 : tab = Figure.creerT();
-                     color = "PINK";
                      break;
 
             case 3 : tab = Figure.creerI();
-                     color = "BLUE";
                      break;
 
             case 4 : tab = Figure.creerJ();
-                     color = "PURPLE";
                      break;
 
             case 5 : tab = Figure.creerL();
-                     color = "GREEN";
                      break;
 
             case 6 : tab = Figure.creerZ();
-                     color = "RED";
                      break;
 
             case 7 : tab = Figure.creerS();
-                     color = "ORANGE";
                      break;
         }
 
@@ -63,15 +56,12 @@ public class Figure
     // Constructeur privé
     private Figure( Cube[][] tab, String color )
     {
-        this.tabCube = tab;
-        this.color   = color;
-
+        this.tabCube       = tab;
         this.rotationCount = 0;
     }
 
     // Accesseurs
     public Cube[][] getCubes()  { return this.tabCube;                  }
-    public String   getColor()  { return this.color;                    }
     public int      getIndRot() { return this.rotationCount % NB_CUBES; }
 
     // Setters
