@@ -5,12 +5,16 @@ public class Cube
     private int x;
     private int y;
 
+    private char nom;
+
     private boolean vivant;
 
-    public Cube( int x, int y )
+    public Cube( int x, int y, char nom )
     {
         this.x = x;
         this.y = y;
+
+        this.nom = nom;
 
         this.vivant = true;
     }
@@ -18,6 +22,8 @@ public class Cube
     // Accesseurs
     public int getX() { return this.x; }
     public int getY() { return this.y; }
+
+    public char getNom() { return this.nom; }
 
     public boolean estVivant() { return this.vivant; }
 

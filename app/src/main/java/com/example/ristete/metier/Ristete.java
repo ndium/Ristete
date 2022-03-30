@@ -7,7 +7,7 @@ import java.util.List;
 public class Ristete
 {
     // constantes
-    public static final int LIGNES       = 20;
+    public static final int LIGNES       = 24;
     public static final int COLONNES     = 10;
     public static final int EXTRA_LIGNES = 4;
 
@@ -40,11 +40,11 @@ public class Ristete
         //this.descente.start();
 
         // Boucle de jeu
-        while( !this.aPerdu() )
-        {
-//            this.maj();
-//            this.jouer();
-        }
+//        while( !this.aPerdu() )
+//        {
+////            this.maj();
+////            this.jouer();
+//        }
 
         try                 { this.descente.interrupt(); }
         catch (Exception e) { e.printStackTrace();       }
@@ -53,6 +53,7 @@ public class Ristete
     // Getters
     public boolean aPerdu() { return this.aPerdu; }
     public Figure getFigureCourante() { return this.figureCourante; }
+    public Plateau getPlateau() { return this.plateau; }
 
     // Methods
 //    public void jouer()
@@ -301,5 +302,10 @@ public class Ristete
 
         // On mélange aléatoirement la liste des figures
         Collections.shuffle( this.lstFigure );
+    }
+
+    public String toString()
+    {
+        return "Chui pas nul fils de pute";
     }
 }

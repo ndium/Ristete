@@ -4,31 +4,34 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.view.MotionEvent;
 import android.view.View;
 
+import com.example.ristete.metier.Plateau;
 import com.example.ristete.metier.Ristete;
 
-public class ZoneDessin extends View
+public class ZoneDessin extends View implements View.OnTouchListener, View.OnClickListener
 {
     private Ristete ristete;
 
-    private Paint grille = new Paint();
-    private Paint bordure = new Paint();
+    private Paint grille     = new Paint();
+    private Paint bordure    = new Paint();
+    private Paint extraLigne = new Paint();
 
-    private Paint figureCarre  = new Paint();
-    private Paint figureZ  = new Paint();
-    private Paint figureS  = new Paint();
-    private Paint figureL  = new Paint();
-    private Paint figureJ  = new Paint();
-    private Paint figureT  = new Paint();
-    private Paint figureI  = new Paint();
-
+    private Paint figureO = new Paint();
+    private Paint figureZ = new Paint();
+    private Paint figureS = new Paint();
+    private Paint figureL = new Paint();
+    private Paint figureJ = new Paint();
+    private Paint figureT = new Paint();
+    private Paint figureI = new Paint();
 
     public ZoneDessin(Context context, Ristete ristete)
     {
         super( context );
         setFocusable( true );
         this.ristete = ristete;
+        System.out.println( this.ristete );
 
         //Style de la grille et des bordures
         grille.setColor( Color.DKGRAY );
@@ -41,12 +44,14 @@ public class ZoneDessin extends View
         bordure.setStyle(Paint.Style.STROKE);
         bordure.setStrokeWidth(5);
 
+        extraLigne.setColor( Color.TRANSPARENT );
+
 
         //Style des figures
-        figureCarre.setColor( Color.YELLOW );
-        figureCarre.setAntiAlias(true);
-        figureCarre.setStyle(Paint.Style.FILL);
-        figureCarre.setStrokeWidth(1);
+        figureO.setColor( Color.YELLOW );
+        figureO.setAntiAlias(true);
+        figureO.setStyle(Paint.Style.FILL);
+        figureO.setStrokeWidth(1);
 
         figureZ.setColor( Color.RED );
         figureZ.setAntiAlias(true);
@@ -78,31 +83,114 @@ public class ZoneDessin extends View
         figureI.setStyle(Paint.Style.FILL);
         figureI.setStrokeWidth(1);
 
-
+        // Ajout des listeners
+        this.setOnTouchListener( this );
+//        this.setOnClickListener( this );
     }
 
     public void onDraw( Canvas canvas )
     {
-        // Création de la grille de jeu
+        // Récupération des mesures
         int largeurGrille = canvas.getWidth()-((canvas.getWidth()/10)*2); //80%
-        int largeurCube = largeurGrille/10;
+        int largeurCube   = largeurGrille/10;
 
-        for( int i = 0; i < 10; i++ )
+        // Création de la grille de jeu
+        this.dessinerBordure( canvas, largeurCube );
+
+        // Dessin du plateau
+        this.dessinerPlateau( canvas, largeurCube );
+    }
+
+    public void dessinerBordure( Canvas canvas, int largeurCube )
+    {
+        for( int i = 0; i < Ristete.COLONNES; i++ )
         {
-            for( int j = 0; j < 20; j++ )
+            for( int j = 4; j < Ristete.LIGNES; j++ )
             {
                 canvas.drawRect((canvas.getWidth()/10) + largeurCube * i,
-                                canvas.getHeight()/20 + (largeurCube * j),
-                               (canvas.getWidth()/10) + largeurCube + (largeurCube * i),
-                              canvas.getHeight()/20+ largeurCube + (largeurCube * j), this.grille);
+                        canvas.getHeight()/20 + (largeurCube * j),
+                        (canvas.getWidth()/10) + largeurCube + (largeurCube * i),
+                        canvas.getHeight()/20+ largeurCube + (largeurCube * j), this.grille);
             }
         }
 
         // Dessin de la bordure
         canvas.drawRect((canvas.getWidth()/10),
-                     canvas.getHeight()/20,
-                    (canvas.getWidth()/10) + largeurCube + (largeurCube * 9),
-                  canvas.getHeight()/20+ largeurCube + (largeurCube * 19), this.bordure);
+                canvas.getHeight()/20 + (largeurCube * 4),
+                (canvas.getWidth()/10) + largeurCube + (largeurCube * (Ristete.COLONNES - 1)),
+                canvas.getHeight()/20+ largeurCube + (largeurCube * (Ristete.LIGNES - 1)), this.bordure);
+    }
 
+    public void dessinerPlateau( Canvas canvas, int largeurCube )
+    {
+        Plateau pl = this.ristete.getPlateau();
+
+        // On dessine le plateau
+        for( int i = 0; i < Ristete.LIGNES; i++ )
+        {
+            for( int j = 0; j < Ristete.COLONNES; j++ )
+            {
+                if( pl.getCase( i, j ) != null )
+                {
+                    char nom = pl.getCase( i, j ).getNom();
+
+                    switch( nom )
+                    {
+                        case 'O' : canvas.drawRect((canvas.getWidth()/10) + largeurCube * j, canvas.getHeight()/20 + (largeurCube * i),
+                                (canvas.getWidth()/10) + largeurCube + (largeurCube * j), canvas.getHeight()/20+ largeurCube + (largeurCube * i), this.figureO);
+                            break;
+
+                        case 'Z' : canvas.drawRect((canvas.getWidth()/10) + largeurCube * j, canvas.getHeight()/20 + (largeurCube * i),
+                                (canvas.getWidth()/10) + largeurCube + (largeurCube * j), canvas.getHeight()/20+ largeurCube + (largeurCube * i), this.figureZ);
+                            break;
+
+                        case 'S' : canvas.drawRect((canvas.getWidth()/10) + largeurCube * j, canvas.getHeight()/20 + (largeurCube * i),
+                                (canvas.getWidth()/10) + largeurCube + (largeurCube * j), canvas.getHeight()/20+ largeurCube + (largeurCube * i), this.figureS);
+                            break;
+
+                        case 'L' : canvas.drawRect((canvas.getWidth()/10) + largeurCube * j, canvas.getHeight()/20 + (largeurCube * i),
+                                (canvas.getWidth()/10) + largeurCube + (largeurCube * j), canvas.getHeight()/20+ largeurCube + (largeurCube * i), this.figureL);
+                            break;
+
+                        case 'J' : canvas.drawRect((canvas.getWidth()/10) + largeurCube * j, canvas.getHeight()/20 + (largeurCube * i),
+                                (canvas.getWidth()/10) + largeurCube + (largeurCube * j), canvas.getHeight()/20+ largeurCube + (largeurCube * i), this.figureJ);
+                            break;
+
+                        case 'T' : canvas.drawRect((canvas.getWidth()/10) + largeurCube * j, canvas.getHeight()/20 + (largeurCube * i),
+                                (canvas.getWidth()/10) + largeurCube + (largeurCube * j), canvas.getHeight()/20+ largeurCube + (largeurCube * i), this.figureT);
+                            break;
+
+                        case 'I' : canvas.drawRect((canvas.getWidth()/10) + largeurCube * j, canvas.getHeight()/20 + (largeurCube * i),
+                                (canvas.getWidth()/10) + largeurCube + (largeurCube * j), canvas.getHeight()/20+ largeurCube + (largeurCube * i), this.figureI);
+                            break;
+                    }
+                }
+            }
+        }
+    }
+
+    public boolean onTouch(View v, MotionEvent e )
+    {
+        if( e.getAction() == MotionEvent.ACTION_MOVE )
+        {
+            System.out.println( "Dans le ActionMove" );
+            if( e.getHistoricalX(0, 0) > e.getX() )
+            {
+                this.ristete.allerEnBas();
+            }
+        }
+        else
+        {
+            this.ristete.rotation();
+        }
+
+        this.invalidate();
+        return true;
+    }
+
+
+    public void onClick( View v )
+    {
+        this.invalidate();
     }
 }
