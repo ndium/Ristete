@@ -30,7 +30,8 @@ public class Tetris extends AppCompatActivity
 /**
  * création d'une classe pour faire le dessin
  */
-class MonTetris extends View implements View.OnClickListener, View.OnTouchListener {
+class MonTetris extends View implements View.OnClickListener, View.OnTouchListener
+{
 
     Paint styleRouge, styleBleu, styleNoir;
     Random alea;
@@ -65,7 +66,8 @@ class MonTetris extends View implements View.OnClickListener, View.OnTouchListen
     }
 
     @Override
-    public boolean onTouch(View v, MotionEvent event) {
+    public boolean onTouch(View v, MotionEvent event)
+    {
         xDoigt = event.getX();
         yDoigt = event.getY();
         // je veux que mon dessin soit redessiné
