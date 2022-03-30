@@ -54,6 +54,7 @@ public class Ristete
     public boolean aPerdu() { return this.aPerdu; }
     public Figure getFigureCourante() { return this.figureCourante; }
     public Plateau getPlateau() { return this.plateau; }
+    public int getScore() {return this.score;}
 
     // Methods
 //    public void jouer()

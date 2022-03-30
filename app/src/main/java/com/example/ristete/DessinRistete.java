@@ -1,6 +1,7 @@
 package com.example.ristete;
 
 import android.os.Bundle;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,5 +20,8 @@ public class DessinRistete extends AppCompatActivity
         this.ristete = new Ristete();
         this.zd = new ZoneDessin( this, this.ristete );
         setContentView( this.zd );
+
     }
+
+
 }

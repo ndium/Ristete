@@ -1,6 +1,8 @@
 package com.example.ristete;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -10,7 +12,7 @@ import android.view.View;
 import com.example.ristete.metier.Plateau;
 import com.example.ristete.metier.Ristete;
 
-public class ZoneDessin extends View implements View.OnTouchListener, View.OnClickListener
+public class ZoneDessin extends View
 {
     private Ristete ristete;
 
@@ -84,7 +86,7 @@ public class ZoneDessin extends View implements View.OnTouchListener, View.OnCli
         figureI.setStrokeWidth(1);
 
         // Ajout des listeners
-        this.setOnTouchListener( this );
+        //this.setOnTouchListener( this );
 //        this.setOnClickListener( this );
     }
 
@@ -99,6 +101,21 @@ public class ZoneDessin extends View implements View.OnTouchListener, View.OnCli
 
         // Dessin du plateau
         this.dessinerPlateau( canvas, largeurCube );
+
+        this.PrintScore(canvas);
+
+    }
+
+    private void PrintScore(Canvas canvas)
+    {
+        int score = this.ristete.getScore();
+        Paint paint = new Paint();
+        paint.setColor(Color.TRANSPARENT);
+        canvas.drawRect(0, 100, 200, 200, paint);
+        paint.setColor(Color.WHITE);
+        paint.setTextSize(100);
+        canvas.drawText(Integer.toString(score), 80, 170, paint);
+
     }
 
     public void dessinerBordure( Canvas canvas, int largeurCube )
@@ -169,28 +186,4 @@ public class ZoneDessin extends View implements View.OnTouchListener, View.OnCli
         }
     }
 
-    public boolean onTouch(View v, MotionEvent e )
-    {
-        if( e.getAction() == MotionEvent.ACTION_MOVE )
-        {
-            System.out.println( "Dans le ActionMove" );
-            if( e.getHistoricalX(0, 0) > e.getX() )
-            {
-                this.ristete.allerEnBas();
-            }
-        }
-        else
-        {
-            this.ristete.rotation();
-        }
-
-        this.invalidate();
-        return true;
-    }
-
-
-    public void onClick( View v )
-    {
-        this.invalidate();
-    }
 }
