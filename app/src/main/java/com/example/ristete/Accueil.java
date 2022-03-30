@@ -18,9 +18,9 @@ public class Accueil extends AppCompatActivity
         setContentView(R.layout.activity_main_responsive);
     }
 
-    public void tetris(View v)
+    public void jouer(View v)
     {
-        Intent intentTetris = new Intent(this,Tetris.class);
+        Intent intentTetris = new Intent(this,DessinRistete.class);
         startActivity(intentTetris);
     }
 

@@ -27,8 +27,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Tetris"
-            android:screenOrientation="portrait"/>
+        <activity android:name=".DessinRistete"
+                  android:screenOrientation="portrait"/>
 
         <activity android:name=".Parametre"
             android:screenOrientation="portrait"/>
