@@ -1,1 +1,37 @@
+
+
+# Ristete - Tetris for Android
+
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+## Description
+
+Ristete is a Tetris game designed for Android devices. This project was developed during my 2nd year of DUT in computer science using Android Studio.
+
+## Features
+
+- Classic Tetris gameplay
+- Designed for mobile Android devices
+- Developed using Android Studio
+
+## Installation
+
+1. Clone the repository: `git clone https://github.com/votre-utilisateur/ristete.git`
+2. Open the project in Android Studio.
+3. Build and run the app on your Android device or emulator.
+
+## Usage
+
+- Use on-screen controls to move and rotate Tetriminos.
+- Clear lines to score points.
+- Game over if the Tetriminos reach the top.
+
+## Acknowledgments
+
+- Special thanks to [Android Studio](https://developer.android.com/studio) for the development environment.
+
+## Screenshots
+
 ![image](ristete.png)
+
+
