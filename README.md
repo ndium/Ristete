@@ -4,7 +4,7 @@
 
 ## Description
 
-Ristete is a Tetris game designed for Android devices. This project was developed during my 2nd year of DUT in computer science using Android Studio.
+Ristete is a Tetris game designed for Android devices. This project was developed in Java during my 2nd year of DUT in computer science using Android Studio.
 
 ## Features
 
