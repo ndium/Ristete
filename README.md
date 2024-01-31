@@ -2,8 +2,6 @@
 
 # Ristete - Tetris for Android
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-
 ## Description
 
 Ristete is a Tetris game designed for Android devices. This project was developed during my 2nd year of DUT in computer science using Android Studio.
@@ -22,7 +20,7 @@ Ristete is a Tetris game designed for Android devices. This project was develope
 
 ## Usage
 
-- Use on-screen controls to move and rotate Tetriminos.
+- Use on-screen controls to move and rotate Tetriminos or the phone's gyroscope..
 - Clear lines to score points.
 - Game over if the Tetriminos reach the top.
 
