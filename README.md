@@ -14,7 +14,7 @@ Ristete is a Tetris game designed for Android devices. This project was develope
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/votre-utilisateur/ristete.git`
+1. Clone the repository: `git clone https://github.com/ndium/Ristete.git`
 2. Open the project in Android Studio.
 3. Build and run the app on your Android device or emulator.
 
